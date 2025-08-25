@@ -68,15 +68,21 @@ This project is expected to cover aspects of PCB design, data processing, HDL co
 
 ## BOM + Component Cost
 
-<!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
+![Preliminary BOM](https://github.com/WebTWJ/corahl-project-amp/blob/main/preliminary-bill-of-materials.png)
+
+- *This is on the higher end, it’s unlikely that we will need one with this many logic elements
+- **Not including miscellaneous items that we don’t know to account for yet (i.e. voltage regulators, resistors, oscillator, battery)
+- ***Self assembly could lower costs, however that is difficult due to the TQFP and VFLGA components and we currently lack the necessary skills and equipment
+- ****In case of  hand assembly, a different size LED, such as 0602 or 0603, simplify process
 
 ## Timeline
 
-<!-- Your Text Here. You may work with your mentor on this later when they are assigned -->
+![Preliminary Timeline](https://github.com/WebTWJ/corahl-project-amp/blob/main/preliminary-timeline.png)
 
 ## Useful Links
 
-https://github.com/Nicholas-L-Johnson/flip-card
+- https://github.com/Nicholas-L-Johnson/flip-card
+- https://course.ece.cmu.edu/~ece500/projects/s22-teame1/
 
 ## Log
 
