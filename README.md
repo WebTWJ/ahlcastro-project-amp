@@ -20,7 +20,7 @@ The goal of the project is to create a version of [Nicholas L. Johnson's flip-ca
 
 The working example of Nicholas Johnson's card is shown below:
 
-![project-demonstration](https://github.com/WebTWJ/corahl-project-amp/blob/main/project-demonstration.gif)
+![project-demonstration](https://github.com/WebTWJ/ahlcastro-project-amp/blob/main/images/preliminary-bill-of-materials.png)
 
 We propose one main change to the Nicholas Johnson's project, running the fluid simulation on an FPGA instead of the microprocessor used originally, an RP2350.
 
