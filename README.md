@@ -69,7 +69,7 @@ This project is expected to cover aspects of PCB design, data processing, HDL co
 
 ## BOM + Component Cost
 
-![Preliminary BOM](https://github.com/WebTWJ/corahl-project-amp/blob/main/preliminary-bill-of-materials.png)
+![Preliminary BOM](https://github.com/WebTWJ/corahl-project-amp/blob/main/images/preliminary-bill-of-materials.png)
 
 - *This is on the higher end, it’s unlikely that we will need one with this many logic elements
 - **Not including miscellaneous items that we don’t know to account for yet (i.e. voltage regulators, resistors, oscillator, battery)
@@ -78,7 +78,7 @@ This project is expected to cover aspects of PCB design, data processing, HDL co
 
 ## Timeline
 Preliminary:
-![Preliminary Timeline](https://github.com/WebTWJ/corahl-project-amp/blob/main/preliminary-timeline.png)
+![Preliminary Timeline](https://github.com/WebTWJ/corahl-project-amp/blob/main/images/preliminary-timeline.png)
 
 ## Useful Links
 
