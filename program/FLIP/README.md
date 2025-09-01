@@ -5,7 +5,7 @@ This simulation method, which comes from [10 Minute Physics]("https://github.com
 The initially defined variables for this are:
 - Particles, each containing position and velocity information
 - Grid, containing horizontal velocity on vertical cell faces, vertical velocity on horizontal cell faces, and the cell type, either solid fluid or air.
--Constants, such as time, flipRatio, and overRelaxation.
+- Constants, such as time, flipRatio, and overRelaxation.
 
 ## Step 1:
 
@@ -19,7 +19,7 @@ $$
 $$
 For handling collisions with the simulation bounds, it simply clamps particle positions to a minimum value, and sets the velocity component of the bound intercected to zero.
 
-For handling particle collision, first a minimum distance is calculated. Then the distance between all particles in the same cells is calculated. If one is less than the minimum distance, then each is moved by half the overlapping distance.
+For handling particle collision, first a minimum distance is calculated. Then the distance between all particles in the same 3 by 3 grid of cells is calculated. If one is less than the minimum distance, then each is moved by half the overlapping distance.
 
 ## Step 2:
 
