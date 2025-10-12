@@ -34,7 +34,7 @@ The first step for this is calculating how close the particle is to the bottom l
 \vec{t}=\frac{\vec{p}_{\text{particle,offset}}-\vec{p}_{\text{bottom-left node}}}{h_{\text{cell}}}
 ```
 These can then be used to calculated each of the individual weights:
-```
+```math
 w_{bl}=(1-t_x)*(1-t_y)
 ```
 ```math
