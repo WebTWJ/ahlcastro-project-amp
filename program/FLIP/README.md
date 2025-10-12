@@ -85,7 +85,7 @@ v_{\text{bottom}}-=p*s_{\text{bottom}}
 ```
 ```math
 v_{\text{top}}+=p*s_{\text{top}}
-```math
+```
 
 
 ## Step 4:
@@ -93,16 +93,16 @@ v_{\text{top}}+=p*s_{\text{top}}
 The grid velocities are then transfered back to the particle. This is done using a combination of PIC (Particle in cell) and FLIP. PIC involves only using the surrounding grid nodes to update the new particle velocities. FLIP calculates the particles new velocity by adding the old particle velocity to the change in grid velocity. PIC is more stable, but is undetailed and loses energy quickly. FLIP has more detail but is unstable.
 
 The PIC velocity is calculated by:
-$$
+```math
 \vec{v}_{\text{PIC}}=w_{bl}v_\text{grid,bl}+w_{br}v_\text{grid,br}+w_{tl}v_\text{grid,tl}+w_{tr}v_\text{grid,tr}
-$$
+```
 The FLIP velocity is calculated by:
-$$
+```math
 \vec{v}_{\text{FLIP}}=\vec{v}_{old}+\Delta\vec{v}_{\text{grid}}
-$$
+```
 The total new particle velocity is calculated by:
-$$
+```math
 \vec{v}_{\text{new}}=(1-\text{flipRatio})\vec{v}_{\text{PIC}} + (\text{flipRatio})\vec{v}_{\text{FLIP}}
-$$
+```
 
 The steps then repeat.
