@@ -10,13 +10,13 @@ The initially defined variables for this are:
 ## Step 1:
 
 Apply outside forces to update particle velocity. The formula used for this is:
-$$
+```math
 \vec{v}_{new} = \vec{v}_{old} + \vec{a} \cdot \Delta t
-$$
+```
 The particles position is then updated based on the new velocity:
-$$
+```math
 \vec{p}_{new} = \vec{p}_{old} + \vec{v}_{new} \cdot \Delta t
-$$
+```
 For handling collisions with the simulation bounds, it simply clamps particle positions to a minimum value, and sets the velocity component of the bound intercected to zero.
 
 For handling particle collision, first a minimum distance is calculated. Then the distance between all particles in the same 3 by 3 grid of cells is calculated. If one is less than the minimum distance, then each is moved by half the overlapping distance.
@@ -25,67 +25,67 @@ For handling particle collision, first a minimum distance is calculated. Then th
 
 The grid is then updated. The simulation has three types of grid cells: air, solid, or fluid. Fluid is if it contains any particles, solid is for borders \ other objects, and air is if no particles are contained within a cell.
 
-The grid velocities are then updated, with the two horizontal sides containing the $\vec{v}_{x}$, and the two verticle sides containing the $\vec{v}_{y}$.
+The grid velocities are then updated, with the two horizontal sides containing the $\vec{v}_x}$, and the two verticle sides containing the $\vec{v}_{y}$.
 
 This is calculated by first getting the 'weights' of each particle, which is how close they are too each corner of the cell.
 
 The first step for this is calculating how close the particle is to the bottom left node:
-$$
+```math
 \vec{t}=\frac{\vec{p}_{\text{particle,offset}}-\vec{p}_{\text{bottom-left node}}}{h_{\text{cell}}}
-$$
+```
 These can then be used to calculated each of the individual weights:
-$$
+```
 w_{bl}=(1-t_x)*(1-t_y)
-$$
-$$
+```
+```math
 w_{br}=t_x*(1-t_y)
-$$
-$$
+```
+```math
 w_{tl}=(1-t_x)*t_y
-$$
-$$
+```
+```math
 w_{tr}=t_x*t_y
-$$
+```
 It is important to note that during the calculations the particle position is offset. For calculating the horizontal component of velocity, the particle positions are considered to be vertically offset by half a cell. In the case of vertical component of velocity, the particle positions are offset by half a cell horizontally. These weights should always add up to one.
 
 
 The velocity for the face of the neighboring side is then calculated as:
-$$
+```math
 \vec{v}_{\text{face}}=\frac{\sum\vec{v}_{\text{particle}}*\text{weight}}{\sum\text{weight}}
-$$
+```
 It is important to note that the horizontal component of velocity only contributes to the side faces, and the vertical component only contributes to top/bottom faces.
 
 ## Step 3:
 
 The fluid is then made incompressible, by calculating the divergence (the difference between the velocity flowing in versus out). Importantly, this is calculation is only run on fluid cells. The openess of a cell, is calculated by:
-$$
+```math
 s=s_{\text{left}}+s_{\text{right}}+s_{\text{top}}+s_{\text{bottom}}
-$$
+```
 Where the individual contribution from each side is given by the type of cell that side is. For a fluid it is 1, for air it is 1, and for a solid it is 0.
 
 The divergence is then is calculated by:
-$$
+```math
 d=v_{\text{right}}-v_{\text{left}}+v_{\text{top}}-v_{\text{bottom}}
-$$
+```
 A 'pressure' parameter is then updated based on the divergence, this modifies the grid velocities to having a divergence of zero:
-$$
+```math
 p=\frac{-d}{s}\text{overRelaxation}
-$$
+```
 The overRelaxation is set at 1.9, and helps to overshoot the pressure needed to solve a given divergence, causing the simulation to reach stability sooner.
 
 This is then used to update the individual velocities of the cell:
-$$
+```math
 v_{\text{left}}-=p*s_{\text{left}}
-$$
-$$
+```
+```math
 v_{\text{right}}+=p*s_{\text{right}}
-$$
-$$
+```
+```math
 v_{\text{bottom}}-=p*s_{\text{bottom}}
-$$
-$$
+```
+```math
 v_{\text{top}}+=p*s_{\text{top}}
-$$
+```math
 
 
 ## Step 4:
